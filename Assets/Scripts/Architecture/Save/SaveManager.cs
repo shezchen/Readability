@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using Architecture.GameSound;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
+using Newtonsoft.Json;
 
 namespace Architecture
 {
@@ -51,19 +51,30 @@ namespace Architecture
 
         private void LoadSettings()
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(_settingsSavePath, FileMode.Open);
-            CurrentSettingsSave = (GameSettings)formatter.Deserialize(stream);
-            stream.Close();
-            Debug.Log("设置数据已从: " + _settingsSavePath + " 加载");
+            if (!File.Exists(_settingsSavePath))
+            {
+                CurrentSettingsSave = new GameSettings();
+                Debug.LogWarning("设置数据文件不存在，已创建默认配置。");
+                return;
+            }
+
+            try
+            {
+                string json = File.ReadAllText(_settingsSavePath);
+                CurrentSettingsSave = JsonConvert.DeserializeObject<GameSettings>(json) ?? new GameSettings();
+                Debug.Log("设置数据已从: " + _settingsSavePath + " 加载");
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError("设置数据解析失败，已回退默认配置。错误: " + exception.Message);
+                CurrentSettingsSave = new GameSettings();
+            }
         }
 
         public void SaveSettings()
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(_settingsSavePath, FileMode.Create);
-            formatter.Serialize(stream, CurrentSettingsSave);
-            stream.Close();
+            string json = JsonConvert.SerializeObject(CurrentSettingsSave, Formatting.Indented);
+            File.WriteAllText(_settingsSavePath, json);
             Debug.Log("设置数据已保存至: " + _settingsSavePath);
         }
         
@@ -72,29 +83,73 @@ namespace Architecture
             return Path.Combine(Application.persistentDataPath, "SaveSlot" + saveSlot + ".sav");
         }
         
-        public void LoadGame(string savePath)
+        public async UniTask LoadGame(int index)
         {
+            var savePath = GetDefaultSavePath(index);
             if (!File.Exists(savePath))
             {
                 Debug.LogError("存档文件不存在: " + savePath);
                 return;
             }
 
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(savePath, FileMode.Open);
-            CurrentGameSave = (GameSave)formatter.Deserialize(stream);
-            stream.Close();
-            Debug.Log("游戏存档已从: " + savePath + " 加载");
+            try
+            {
+                string json = await File.ReadAllTextAsync(savePath);
+                CurrentGameSave = JsonConvert.DeserializeObject<GameSave>(json);
+
+                Debug.Log("游戏存档已从: " + savePath + " 加载");
+            }
+            catch (Exception exception)
+            {
+                Debug.LogError("存档数据读取失败: " + exception.Message);
+            }
+        }
+
+        public async UniTask SaveGame(int index)
+        {
+            var savePath = GetDefaultSavePath(index);
+            CurrentGameSave.LastSaveTime = DateTime.Now;
+            string json = JsonConvert.SerializeObject(CurrentGameSave, Formatting.Indented);
+            await File.WriteAllTextAsync(savePath, json);
+            Debug.Log("游戏存档已保存至: " + savePath);
         }
         
-        public void SaveGame(string savePath)
+        public bool CheckSaveExists(int saveSlot)
         {
-            CurrentGameSave.LastSaveTime = DateTime.Now;
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(savePath, FileMode.Create);
-            formatter.Serialize(stream, CurrentGameSave);
-            stream.Close();
-            Debug.Log("游戏存档已保存至: " + savePath);
+            string path = GetDefaultSavePath(saveSlot);
+            if (File.Exists(path))
+            {
+                Debug.Log("存档槽 " + saveSlot + " 存在存档文件。");
+                return true;
+            }
+            else
+            {
+                Debug.Log("存档槽 " + saveSlot + " 不存在存档文件。");
+                return false;
+            }
+        }
+        
+        public async UniTask CreateNewSave(int saveSlot)
+        {
+            CurrentGameSave = new GameSave();
+            await SaveGame(saveSlot);
+            Debug.Log("已在存档槽 " + saveSlot + " 创建新存档文件。");
+        }
+        
+        public bool DeleteSave(int saveSlot)
+        {
+            string path = GetDefaultSavePath(saveSlot);
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+                Debug.Log("存档槽 " + saveSlot + " 的存档文件已删除。");
+                return true;
+            }
+            else
+            {
+                Debug.LogWarning("存档槽 " + saveSlot + " 的存档文件不存在，无法删除。");
+                return false;
+            }
         }
     }
 }

@@ -1,0 +1,24 @@
+{
+  "projectFileVersion": 3,
+  "sourceFiles": [
+    "MainStory/*.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*",
+    "./Samples/Yarn Spinner*/*"
+  ],
+  "localisation": {
+    "en": {
+      "assets": "MainStory\\EN"
+    },
+    "ja": {
+      "assets": "MainStory\\JP"
+    },
+    "zh-Hans": {
+      "assets": "MainStory\\CHN"
+    }
+  },
+  "baseLanguage": "zh-Hans",
+  "compilerOptions": {},
+  "definitionsFiles": []
+}

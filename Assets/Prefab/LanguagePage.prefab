@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 6033076044831866822}
   - component: {fileID: 6889091334364182413}
   - component: {fileID: 518006910608773930}
+  - component: {fileID: 2901823540674577186}
   m_Layer: 0
   m_Name: LanguagePage
   m_TagString: Untagged
@@ -188,7 +189,7 @@ Canvas:
   m_GameObject: {fileID: 1102634226702528288}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -255,6 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Architecture.LanguagePage
   languageText: {fileID: 5759771262743171623}
+  fadeDuration: 0.5
 --- !u!114 &518006910608773930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +276,18 @@ MonoBehaviour:
     Object: {fileID: 861904539075846825}
   - ID: Button_Japanese
     Object: {fileID: 7786704263032530330}
+--- !u!225 &2901823540674577186
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102634226702528288}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8442684692644927009
 GameObject:
   m_ObjectHideFlags: 0

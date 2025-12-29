@@ -2,6 +2,7 @@ using Architecture.GameSound;
 using Architecture.GameSound.AudioProvider;
 using Architecture.Language;
 using Sirenix.OdinInspector;
+using UI;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -24,6 +25,9 @@ namespace Architecture
 
         [BoxGroup("UI"), LabelText("UI Root"), SerializeField]
         private UIRoot uiRoot;
+        
+        [BoxGroup("GamePlay"), LabelText("GamePlay Root"), SerializeField]
+        private GamePlay.GamePlayRoot gamePlayRoot;
         
         protected override void Configure(IContainerBuilder builder)
         {
@@ -71,6 +75,10 @@ namespace Architecture
 
             #endregion
 
+            #region GamePlay
+            builder.RegisterComponent(gamePlayRoot);
+            builder.Register<GamePlay.GamePlayManager>(Lifetime.Singleton);
+            #endregion
         }
     }
 }

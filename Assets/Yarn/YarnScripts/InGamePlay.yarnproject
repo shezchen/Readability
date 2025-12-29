@@ -1,0 +1,24 @@
+{
+  "projectFileVersion": 3,
+  "sourceFiles": [
+    "InGamePlay/*.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*",
+    "./Samples/Yarn Spinner*/*"
+  ],
+  "localisation": {
+    "en": {
+      "assets": "InGamePlay\\EN"
+    },
+    "ja": {
+      "assets": "InGamePlay\\JP"
+    },
+    "zh-Hans": {
+      "assets": "InGamePlay\\CHN"
+    }
+  },
+  "baseLanguage": "zh-Hans",
+  "compilerOptions": {},
+  "definitionsFiles": []
+}

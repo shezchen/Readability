@@ -54,6 +54,34 @@ MonoBehaviour:
     m_Localized: Finish
     m_Metadata:
       m_Items: []
+  - m_Id: 6101139526553600
+    m_Localized: Empty archive space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101248788172800
+    m_Localized: Archive location 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101332410011648
+    m_Localized: Archive location 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101349791207424
+    m_Localized: Archive location 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101513478115328
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101549398134784
+    m_Localized: Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101600488951808
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

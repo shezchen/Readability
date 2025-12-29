@@ -51,6 +51,34 @@ MonoBehaviour:
     m_Key: Finish
     m_Metadata:
       m_Items: []
+  - m_Id: 6101139526553600
+    m_Key: SlotEmpty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101248788172800
+    m_Key: SlotOccupiedLabel0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101332410011648
+    m_Key: SlotOccupiedLabel1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101349791207424
+    m_Key: SlotOccupiedLabel2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101513478115328
+    m_Key: Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101549398134784
+    m_Key: Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6101600488951808
+    m_Key: NewGame
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

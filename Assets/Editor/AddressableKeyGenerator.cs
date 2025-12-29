@@ -15,7 +15,7 @@ namespace Editor
         // 生成的类名
         private const string ClassName = "AddressableKeys";
 
-        [MenuItem("Tools/16Party/Generate Addressable Keys")]
+        [MenuItem("Tools/MyTools/Generate Addressable Keys")]
         public static void Generate()
         {
             var settings = AddressableAssetSettingsDefaultObject.Settings;
