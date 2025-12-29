@@ -18,6 +18,7 @@ namespace Architecture
         public bool IsFirstLaunch;
         public GameSettings CurrentSettingsSave;
         public GameSave CurrentGameSave;
+        public int CurrentGameSaveIndex;
 
         /// <summary>
         /// 初始化，会设置IsFirstLaunch和CurrentSettingsSave
@@ -96,7 +97,7 @@ namespace Architecture
             {
                 string json = await File.ReadAllTextAsync(savePath);
                 CurrentGameSave = JsonConvert.DeserializeObject<GameSave>(json);
-
+                CurrentGameSaveIndex = index;
                 Debug.Log("游戏存档已从: " + savePath + " 加载");
             }
             catch (Exception exception)
@@ -131,7 +132,7 @@ namespace Architecture
         
         public async UniTask CreateNewSave(int saveSlot)
         {
-            CurrentGameSave = new GameSave();
+            CurrentGameSave = new GameSave(0);
             await SaveGame(saveSlot);
             Debug.Log("已在存档槽 " + saveSlot + " 创建新存档文件。");
         }

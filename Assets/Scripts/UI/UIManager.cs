@@ -1,10 +1,12 @@
 ﻿using Architecture;
+using Architecture.Language;
 using Cysharp.Threading.Tasks;
 using UI.Page;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using VContainer.Unity;
+using Yarn.Unity;
 
 namespace UI
 {
@@ -15,11 +17,13 @@ namespace UI
     {
         private UIRoot _uiRoot;
         private EventBus _eventBus;
+
         
         private AsyncOperationHandle<GameObject> _handleMainScenePrefab;
         private AsyncOperationHandle<GameObject> _handleStartGamePagePrefab;
         private AsyncOperationHandle<GameObject> _handleLanguagePagePrefab;
         private AsyncOperationHandle<GameObject> _handleSettingsPagePrefab;
+        private AsyncOperationHandle<GameObject> _handleYarnDialoguePrefab;
         
         
         public UIManager(UIRoot root, EventBus eventBus)
@@ -40,6 +44,8 @@ namespace UI
                 Addressables.LoadAssetAsync<GameObject>(AddressableKeys.Assets.StartGamePagePrefab);
             _handleSettingsPagePrefab =
                 Addressables.LoadAssetAsync<GameObject>(AddressableKeys.Assets.SettingsPagePrefab);
+            _handleYarnDialoguePrefab =
+                Addressables.LoadAssetAsync<GameObject>(AddressableKeys.Assets.StoryDialogueSystemPrefab);
         }
         
         public async UniTask ShowLanguagePage()
@@ -89,15 +95,42 @@ namespace UI
             _eventBus.Publish(new BlackScreenEvent(false));
             await UniTask.Delay(500);
         }
+        
+        /// <summary>
+        /// 销毁UI Root下的所有子物体
+        /// </summary>
+        public void ClearUIRoot()
+        {
+            for (int i = _uiRoot.transform.childCount - 1; i >= 0; i--)
+            {
+                Object.Destroy(_uiRoot.transform.GetChild(i).gameObject);
+            }
+        }
 
         /// <summary>
-        /// 第一次加载并进入GamePlay
+        /// 实例化对话系统Prefab，设置dialogue runner的yarn Project，设置line provider的本地化标志，播放Yarn脚本
         /// </summary>
-        public async UniTask EnterGamePlay()
+        /// <param name="nodeName">播放节点名</param>
+        /// <param name="yarnProject">需要传入Yarn Project</param>
+        public async UniTask DisplayYarnStory(string nodeName,YarnProject yarnProject)
         {
-            // 开始对话系统
+            var go = await _handleYarnDialoguePrefab;
+            var instance = Object.Instantiate(go, _uiRoot.transform);
+            var dialogueRunner = instance.GetComponent<DialogueRunner>();
             
-            // TODO
+            dialogueRunner.SetProject(yarnProject);
+
+            var lineProvider = instance.GetComponent<BuiltinLocalisedLineProvider>();
+            lineProvider.LocaleCode  = LanguageManager.CurrentLanguage switch
+            {
+                GameLanguageType.Chinese => "zh-Hans",
+                GameLanguageType.English => "en",
+                GameLanguageType.Japanese => "ja",
+                _ => "en"
+            };
+            lineProvider.AssetLocaleCode = lineProvider.LocaleCode;
+            
+            await dialogueRunner.StartDialogue(nodeName);
         }
     }
 }

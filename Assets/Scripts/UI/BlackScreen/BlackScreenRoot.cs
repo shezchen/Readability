@@ -24,6 +24,10 @@ namespace UI
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
             _eventBus.Receive<BlackScreenEvent>().Subscribe(OnBlackScreenEvent).AddTo(this);
+            foreach (Transform t in transform)
+            {
+                t.gameObject.SetActive(true);
+            }
         }
         
         private void OnBlackScreenEvent(BlackScreenEvent evt)

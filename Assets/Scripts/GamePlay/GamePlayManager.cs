@@ -7,6 +7,8 @@ namespace GamePlay
     /// </summary>
     public class GamePlayManager
     {
-        
+        public void Reset()
+        {
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace UI.Page
         [Inject] private SaveManager _saveManager;
         [Inject] private EventBus _eventBus;
         [Inject] private UIManager _uiManager;
+        [Inject] private GameFlowController _gameFlowController;
         
         private CanvasGroup _canvasGroup;
         private UIBinder _uiBinder;
@@ -114,10 +115,8 @@ namespace UI.Page
                 Debug.Log($"加载存档 {index}");
                 await _uiManager.StartBlackScreen();
                 await _saveManager.LoadGame(index);
-                await _uiManager.EnterGamePlay();
-                gameObject.SetActive(false);
+                await _gameFlowController.EnterGamePlay();
                 await _uiManager.EndBlackScreen();
-                Destroy(gameObject);
             }
             catch (Exception e)
             {

@@ -797,6 +797,7 @@ GameObject:
   - component: {fileID: 7549681197363885045}
   - component: {fileID: 3990213568605981090}
   - component: {fileID: 4066645750732169824}
+  - component: {fileID: 2121210506072267534}
   m_Layer: 0
   m_Name: Story Dialogue System
   m_TagString: Untagged
@@ -836,7 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yarnProject: {fileID: 0}
   variableStorage: {fileID: 4066645750732169824}
-  lineProvider: {fileID: 0}
+  lineProvider: {fileID: 2121210506072267534}
   saliencyStrategy: 0
   dialoguePresenters:
   - {fileID: 900951064020998720}
@@ -876,6 +877,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showDebug: 0
   debugTextView: {fileID: 0}
+--- !u!114 &2121210506072267534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899391186820336707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6798449caec4a32a5ad27badb06624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: YarnSpinner.Unity::Yarn.Unity.BuiltinLocalisedLineProvider
+  _textLocaleCode: zh
+  _assetLocaleCode: zh
+  _useFallback: 0
+  _fallbackLocaleCode: zh
 --- !u!1 &6023836859674102545
 GameObject:
   m_ObjectHideFlags: 0
