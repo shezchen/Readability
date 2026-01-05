@@ -5,27 +5,27 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 using Newtonsoft.Json;
+using Sirenix.OdinInspector;
 
 namespace Architecture
 {
-    public class SaveManager:ManagerNeedInitializeBase
+    public class SaveManager
     {
         [Inject] private IAudioService _audioService;
         
-        private const string SettingsSaveName = "GameSettings.sav";
-        private readonly string _settingsSavePath = Path.Combine(Application.persistentDataPath, SettingsSaveName);
+        [ShowInInspector,ReadOnly]private const string SettingsSaveName = "GameSettings.sav";
+        [ShowInInspector,ReadOnly]private readonly string _settingsSavePath = Path.Combine(Application.persistentDataPath, SettingsSaveName);
 
-        public bool IsFirstLaunch;
-        public GameSettings CurrentSettingsSave;
-        public GameSave CurrentGameSave;
-        public int CurrentGameSaveIndex;
+        [ShowInInspector,ReadOnly]public bool IsFirstLaunch;
+        [ShowInInspector,ReadOnly]public GameSettings CurrentSettingsSave;
+        [ShowInInspector,ReadOnly]public GameSave CurrentGameSave;
+        [ShowInInspector,ReadOnly]public int CurrentGameSaveIndex;
 
         /// <summary>
         /// 初始化，会设置IsFirstLaunch和CurrentSettingsSave
         /// </summary>
-        public override async UniTask Init()
+        public async UniTask Init()
         {
-            await base.Init();
             IsFirstLaunch = !File.Exists(_settingsSavePath);
             if (IsFirstLaunch)
             {
@@ -98,7 +98,7 @@ namespace Architecture
                 string json = await File.ReadAllTextAsync(savePath);
                 CurrentGameSave = JsonConvert.DeserializeObject<GameSave>(json);
                 CurrentGameSaveIndex = index;
-                Debug.Log("游戏存档已从: " + savePath + " 加载");
+                Debug.Log("index"+index+"   游戏存档已从: " + savePath + " 加载");
             }
             catch (Exception exception)
             {

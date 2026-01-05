@@ -46,8 +46,6 @@ namespace UI.Page
 
         public override async UniTask Display()
         {
-            _eventBus.Publish(new PageShow(typeof(StartGamePage)));
-            
             _saveExists = new []
             {
                 _saveManager.CheckSaveExists(0),
@@ -59,11 +57,13 @@ namespace UI.Page
             {
                 _uiBinder.Get<SaveSlotButton>("Button_SaveSlot"+i).SetSlotLabel(!_saveExists[i]);
             }
-            
+
+            _canvasGroup.alpha = 0;
             _currentTween?.Kill();
             _currentTween = _canvasGroup.FadeIn(fadeDuration, true, true);
             await _currentTween.AsyncWaitForCompletion();
             EventSystem.current.SetSelectedGameObject(_uiBinder.Get("Button_SaveSlot1"));
+            _eventBus.Publish(new PageShow(typeof(StartGamePage)));
         }
 
         public override async UniTask Hide()
@@ -74,6 +74,11 @@ namespace UI.Page
             _currentTween = _canvasGroup.FadeOut(fadeDuration, false, false);
             await _currentTween.AsyncWaitForCompletion();
             Destroy(gameObject);
+        }
+
+        public void Escape()
+        {
+            Hide().Forget();
         }
 
         public void OnSaveSlotSubmitted(int index)

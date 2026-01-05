@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Architecture.GameSound.AudioProvider;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -18,7 +19,7 @@ namespace Architecture.GameSound
         private readonly BgmAudioSourceProvider _bgmProvider;
         private readonly SfxAudioSourceProvider _sfxProvider;
         private readonly AudioCatalog _catalog;
-        private readonly Dictionary<string, AsyncOperationHandle<AudioClip>> _loadedClipHandles = new();
+        [ShowInInspector,ReadOnly]private readonly Dictionary<string, AsyncOperationHandle<AudioClip>> _loadedClipHandles = new();
 
         private float _bgmVolume = 1f;
         private float _sfxVolume = 1f;

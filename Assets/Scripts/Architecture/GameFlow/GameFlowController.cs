@@ -1,23 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Architecture.GameSound;
 using Architecture.Language;
 using Cysharp.Threading.Tasks;
+using GamePlay;
+using GamePlay.Events;
 using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using VContainer;
+using VContainer.Unity;
 using Yarn.Unity;
 using Object = UnityEngine.Object;
 
 namespace Architecture
 {
-    public class GameFlowController : MonoBehaviour
+    public class GameFlowController : SerializedMonoBehaviour
     {
         [LabelText("跳过启动流程"), SerializeField] private bool _skipStartupFlow = false;
         
         [FoldoutGroup("Yarn Projects"), SerializeField] private YarnProject mainStoryYarnProject;
         [FoldoutGroup("Yarn Projects"), SerializeField] private YarnProject gamePlayYarnProject;
+
+        [Title("Document Page Data")]
+        [SerializeField, DictionaryDrawerSettings(
+            DisplayMode = DictionaryDisplayOptions.Foldout,
+            KeyLabel = "Page ID",
+            ValueLabel = "Page Data"
+        )]
+        [Tooltip("文档页面数据字典，Key为页面ID，Value为页面数据")]
+        private Dictionary<string, DocumentPageData> _documentPageDataDict = new Dictionary<string, DocumentPageData>();
         
         [Inject] private UIManager _uiManager;
         [Inject] private SaveManager _saveManager;
@@ -46,10 +60,7 @@ namespace Architecture
         /// </summary>
         public async UniTask EnterGamePlay()
         {
-            //清空UI Root
-            _uiManager.ClearUIRoot();
-            _gamePlayRoot.ClearGamePlayRoot();
-            _gamePlayManager.Reset();
+            //TODO 设置UI Manager的加载
             await StartGameDay(_saveManager.CurrentGameSave.GameDay);
         }
         
@@ -60,12 +71,27 @@ namespace Architecture
 
         public async UniTask StartGameDay(int day)
         {
+            _uiManager.ClearUIRoot();
+            _gamePlayRoot.ClearGamePlayRoot();
+            _gamePlayManager.ResetGamePlay();
+            
             switch (day)
             {
                 case 0:
                     await _uiManager.DisplayYarnStory(StoryName.Prologue, mainStoryYarnProject);
                     break;
                 case 1:
+                    Debug.Log("进入第一天");
+                    //第一天直接进入关卡
+                    var go = await Addressables.LoadAssetAsync<GameObject>(AddressableKeys.Assets.LevelTestPrefab);
+                    var instance = Instantiate(go, _gamePlayRoot.transform);
+                    ScopeRef.LifetimeScope.Container.InjectGameObject(instance);
+                    _eventBus.Publish(new SetPageListEvent(new List<DocumentPageData>()
+                    {
+                        _documentPageDataDict["1-1"],
+                        _documentPageDataDict["1-2"],
+                        _documentPageDataDict["1-3"]
+                    }));
                     break;
                 case 2:
                     break;
@@ -81,7 +107,6 @@ namespace Architecture
         [YarnCommand("EndDayZero")]
         public async void EndDayZero()
         {
-            _uiManager.ClearUIRoot();
             await EndGameDay();
         }
 

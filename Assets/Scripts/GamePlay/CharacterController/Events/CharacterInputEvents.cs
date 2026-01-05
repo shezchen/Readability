@@ -1,9 +1,14 @@
 using UnityEngine;
 
-namespace GamePlay.CharacterController.Events
+namespace GamePlay.Events
 {
     public record MoveInputEvent(Vector2 Direction, bool IsSprinting);
+
     public record SprintStateChangedEvent(bool IsSprinting);
+
     public record InteractEvent;
-    public record BackpackToggleEvent;
+
+    public record LeftPageEvent;
+
+    public record RightPageEvent;
 }

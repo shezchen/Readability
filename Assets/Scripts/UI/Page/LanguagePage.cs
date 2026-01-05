@@ -69,6 +69,7 @@ namespace UI.Page
 
         public override async UniTask Display()
         {
+            _canvasGroup.alpha = 0;
             await _canvasGroup.FadeIn(fadeDuration).AsyncWaitForCompletion();
             _eventBus.Publish(new PageShow(typeof(LanguagePage)));
         }

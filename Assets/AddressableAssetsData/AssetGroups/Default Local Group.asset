@@ -55,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c831d95b514643f479b1ea2a86824366
+    m_Address: LevelTestPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f6eedc5e1bf083e47a707bbe96b1f8a2
     m_Address: Demo_TestTMP
     m_ReadOnly: 0

@@ -5,16 +5,18 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using VContainer;
 using R3;
+using Sirenix.OdinInspector;
 
 namespace Architecture.Language
 {
     /// <summary>
     /// 用来切换语言，CurrentLanguage储存现在使用的语言
     /// </summary>
-    public class LanguageManager:ManagerNeedInitializeBase
+    public class LanguageManager
     {
         [Inject] private EventBus _eventBus;
         
+        [ShowInInspector]
         public static GameLanguageType CurrentLanguage { get; private set; } = GameLanguageType.English;
         private bool _isInitialized = false;
         
@@ -25,9 +27,8 @@ namespace Architecture.Language
         /// <summary>
         /// 游戏开始时需要使用此方法初始化LanguageManager
         /// </summary>
-        public override async UniTask Init()
+        public async UniTask Init()
         {
-            await base.Init();
             Debug.Log("LanguageManager启动");
             await StartInitialize();
 

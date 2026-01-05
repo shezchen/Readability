@@ -34,9 +34,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Backpack",
+                    "name": "LeftPage",
                     "type": "Button",
-                    "id": "816f88fb-7573-478a-b36f-1197c89d8174",
+                    "id": "ecf7b2a8-7514-4710-b0cf-acf474f68a54",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightPage",
+                    "type": "Button",
+                    "id": "1cc842e6-09ba-48cf-a9ab-050b94556f8b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleReader",
+                    "type": "Button",
+                    "id": "08d1e779-d131-4e5f-8b01-cb2956e5adc2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RemoteInteract",
+                    "type": "Button",
+                    "id": "2173ec97-a834-4dd1-983e-ace974d217c2",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -179,7 +206,7 @@
                 {
                     "name": "",
                     "id": "1c04ea5f-b012-41d1-a6f7-02e963b52893",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -200,23 +227,89 @@
                 },
                 {
                     "name": "",
-                    "id": "b80fa7d7-b945-4208-87f2-69178163e8b6",
-                    "path": "<Keyboard>/tab",
+                    "id": "88b44363-e1f7-4662-ba7a-7899a6ac3e24",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Backpack",
+                    "action": "LeftPage",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "187030b4-af7b-4e71-9398-381e4d21a0f6",
+                    "id": "3bd47656-188e-44d7-a2e8-bce69b3b3352",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Backpack",
+                    "groups": "",
+                    "action": "LeftPage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3037be5f-2641-459d-9811-7de86f4db00e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightPage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6bcd5416-11b8-4421-be8c-304bbf983d69",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightPage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e68282e5-6824-48d8-ad79-f783f1817de4",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleReader",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a064570-524b-4748-823d-10069e9ce079",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleReader",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca9504d0-cc24-4384-b881-ddc996308f48",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoteInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c14f4ec-ea43-430f-a3ea-0f83c4951830",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RemoteInteract",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -276,6 +369,15 @@
                     "type": "PassThrough",
                     "id": "0489e84a-4833-4c40-bfae-cea84b696689",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GoBack",
+                    "type": "Button",
+                    "id": "10925b4e-7fb4-459f-887c-803779cc3183",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -653,6 +755,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "MiddleClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f65767f-44de-49b4-bb91-535f95c0b98f",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GoBack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30400841-2036-4bec-99f4-7f9cd96231b7",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GoBack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

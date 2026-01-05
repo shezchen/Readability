@@ -120,9 +120,36 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Backpack"",
+                    ""name"": ""LeftPage"",
                     ""type"": ""Button"",
-                    ""id"": ""816f88fb-7573-478a-b36f-1197c89d8174"",
+                    ""id"": ""ecf7b2a8-7514-4710-b0cf-acf474f68a54"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightPage"",
+                    ""type"": ""Button"",
+                    ""id"": ""1cc842e6-09ba-48cf-a9ab-050b94556f8b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleReader"",
+                    ""type"": ""Button"",
+                    ""id"": ""08d1e779-d131-4e5f-8b01-cb2956e5adc2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RemoteInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""2173ec97-a834-4dd1-983e-ace974d217c2"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -265,7 +292,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1c04ea5f-b012-41d1-a6f7-02e963b52893"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -286,23 +313,89 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b80fa7d7-b945-4208-87f2-69178163e8b6"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""id"": ""88b44363-e1f7-4662-ba7a-7899a6ac3e24"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Backpack"",
+                    ""action"": ""LeftPage"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""187030b4-af7b-4e71-9398-381e4d21a0f6"",
+                    ""id"": ""3bd47656-188e-44d7-a2e8-bce69b3b3352"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Backpack"",
+                    ""groups"": """",
+                    ""action"": ""LeftPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3037be5f-2641-459d-9811-7de86f4db00e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6bcd5416-11b8-4421-be8c-304bbf983d69"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e68282e5-6824-48d8-ad79-f783f1817de4"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleReader"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a064570-524b-4748-823d-10069e9ce079"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleReader"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca9504d0-cc24-4384-b881-ddc996308f48"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RemoteInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c14f4ec-ea43-430f-a3ea-0f83c4951830"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RemoteInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -362,6 +455,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""0489e84a-4833-4c40-bfae-cea84b696689"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GoBack"",
+                    ""type"": ""Button"",
+                    ""id"": ""10925b4e-7fb4-459f-887c-803779cc3183"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -741,6 +843,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""MiddleClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f65767f-44de-49b4-bb91-535f95c0b98f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GoBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30400841-2036-4bec-99f4-7f9cd96231b7"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GoBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -813,7 +937,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
-        m_Player_Backpack = m_Player.FindAction("Backpack", throwIfNotFound: true);
+        m_Player_LeftPage = m_Player.FindAction("LeftPage", throwIfNotFound: true);
+        m_Player_RightPage = m_Player.FindAction("RightPage", throwIfNotFound: true);
+        m_Player_ToggleReader = m_Player.FindAction("ToggleReader", throwIfNotFound: true);
+        m_Player_RemoteInteract = m_Player.FindAction("RemoteInteract", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -822,6 +949,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
         m_UI_MiddleClick = m_UI.FindAction("MiddleClick", throwIfNotFound: true);
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
+        m_UI_GoBack = m_UI.FindAction("GoBack", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -906,7 +1034,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Sprint;
-    private readonly InputAction m_Player_Backpack;
+    private readonly InputAction m_Player_LeftPage;
+    private readonly InputAction m_Player_RightPage;
+    private readonly InputAction m_Player_ToggleReader;
+    private readonly InputAction m_Player_RemoteInteract;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -931,9 +1062,21 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         /// <summary>
-        /// Provides access to the underlying input action "Player/Backpack".
+        /// Provides access to the underlying input action "Player/LeftPage".
         /// </summary>
-        public InputAction @Backpack => m_Wrapper.m_Player_Backpack;
+        public InputAction @LeftPage => m_Wrapper.m_Player_LeftPage;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/RightPage".
+        /// </summary>
+        public InputAction @RightPage => m_Wrapper.m_Player_RightPage;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ToggleReader".
+        /// </summary>
+        public InputAction @ToggleReader => m_Wrapper.m_Player_ToggleReader;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/RemoteInteract".
+        /// </summary>
+        public InputAction @RemoteInteract => m_Wrapper.m_Player_RemoteInteract;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -969,9 +1112,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
-            @Backpack.started += instance.OnBackpack;
-            @Backpack.performed += instance.OnBackpack;
-            @Backpack.canceled += instance.OnBackpack;
+            @LeftPage.started += instance.OnLeftPage;
+            @LeftPage.performed += instance.OnLeftPage;
+            @LeftPage.canceled += instance.OnLeftPage;
+            @RightPage.started += instance.OnRightPage;
+            @RightPage.performed += instance.OnRightPage;
+            @RightPage.canceled += instance.OnRightPage;
+            @ToggleReader.started += instance.OnToggleReader;
+            @ToggleReader.performed += instance.OnToggleReader;
+            @ToggleReader.canceled += instance.OnToggleReader;
+            @RemoteInteract.started += instance.OnRemoteInteract;
+            @RemoteInteract.performed += instance.OnRemoteInteract;
+            @RemoteInteract.canceled += instance.OnRemoteInteract;
         }
 
         /// <summary>
@@ -992,9 +1144,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
-            @Backpack.started -= instance.OnBackpack;
-            @Backpack.performed -= instance.OnBackpack;
-            @Backpack.canceled -= instance.OnBackpack;
+            @LeftPage.started -= instance.OnLeftPage;
+            @LeftPage.performed -= instance.OnLeftPage;
+            @LeftPage.canceled -= instance.OnLeftPage;
+            @RightPage.started -= instance.OnRightPage;
+            @RightPage.performed -= instance.OnRightPage;
+            @RightPage.canceled -= instance.OnRightPage;
+            @ToggleReader.started -= instance.OnToggleReader;
+            @ToggleReader.performed -= instance.OnToggleReader;
+            @ToggleReader.canceled -= instance.OnToggleReader;
+            @RemoteInteract.started -= instance.OnRemoteInteract;
+            @RemoteInteract.performed -= instance.OnRemoteInteract;
+            @RemoteInteract.canceled -= instance.OnRemoteInteract;
         }
 
         /// <summary>
@@ -1038,6 +1199,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Click;
     private readonly InputAction m_UI_MiddleClick;
     private readonly InputAction m_UI_ScrollWheel;
+    private readonly InputAction m_UI_GoBack;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1073,6 +1235,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/ScrollWheel".
         /// </summary>
         public InputAction @ScrollWheel => m_Wrapper.m_UI_ScrollWheel;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/GoBack".
+        /// </summary>
+        public InputAction @GoBack => m_Wrapper.m_UI_GoBack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1117,6 +1283,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ScrollWheel.started += instance.OnScrollWheel;
             @ScrollWheel.performed += instance.OnScrollWheel;
             @ScrollWheel.canceled += instance.OnScrollWheel;
+            @GoBack.started += instance.OnGoBack;
+            @GoBack.performed += instance.OnGoBack;
+            @GoBack.canceled += instance.OnGoBack;
         }
 
         /// <summary>
@@ -1146,6 +1315,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @ScrollWheel.started -= instance.OnScrollWheel;
             @ScrollWheel.performed -= instance.OnScrollWheel;
             @ScrollWheel.canceled -= instance.OnScrollWheel;
+            @GoBack.started -= instance.OnGoBack;
+            @GoBack.performed -= instance.OnGoBack;
+            @GoBack.canceled -= instance.OnGoBack;
         }
 
         /// <summary>
@@ -1273,12 +1445,33 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Backpack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "LeftPage" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBackpack(InputAction.CallbackContext context);
+        void OnLeftPage(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "RightPage" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRightPage(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleReader" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleReader(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "RemoteInteract" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRemoteInteract(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -1329,5 +1522,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnScrollWheel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "GoBack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGoBack(InputAction.CallbackContext context);
     }
 }

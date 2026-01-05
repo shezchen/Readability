@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using R3;
+using Sirenix.OdinInspector;
 
 namespace Architecture
 {
     public class EventBus : IDisposable
     {
+        [ShowInInspector, ReadOnly, DictionaryDrawerSettings(DisplayMode = DictionaryDisplayOptions.OneLine)]
         private readonly Dictionary<Type, object> _subjects = new();
         
         /// <summary>

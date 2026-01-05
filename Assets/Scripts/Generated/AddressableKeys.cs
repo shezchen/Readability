@@ -22,5 +22,6 @@ public static class AddressableKeys
         public const string StoryDialogueSystemPrefab = "StoryDialogueSystemPrefab";
         public const string Test_SFX_001 = "Test SFX 001";
         public const string Demo_TestTMP = "Demo_TestTMP";
+        public const string LevelTestPrefab = "LevelTestPrefab";
     }
 }
